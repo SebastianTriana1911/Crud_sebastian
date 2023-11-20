@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUsers;
-use App\Http\Requests\UpdateUsers;
 use App\Models\User;
-
-use App\Http\Requests\UsersRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUsers;
+
+use App\Http\Requests\UpdateUsers;
+use App\Http\Requests\UsersRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
     public function index(){
@@ -35,7 +36,7 @@ class UserController extends Controller{
         $user -> phone = $request -> phone;
         $user -> user_name = $request -> user_name;
         $user -> email = $request -> email;
-        $user -> password = $request -> password;
+        $user -> password = Hash::make($request->password);
         $user -> role_id = $request -> role_id;
 
         $user->save();

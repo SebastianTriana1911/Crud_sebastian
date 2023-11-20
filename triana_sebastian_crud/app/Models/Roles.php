@@ -10,6 +10,8 @@ class Roles extends Model{
 
     protected $table = "roles";
 
+    protected $fillable = ['role_name', 'description'];
+
     protected $guarded = [];
 
     public function users(){

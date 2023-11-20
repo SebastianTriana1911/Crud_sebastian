@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\CandidateController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
-use App\Http\Requests\CandidateRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Requests\CandidateRequest;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\CandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +52,10 @@ Route::get("candidates/edit/{id}",[CandidateController::class,"edit"])->name("ca
 Route::put("candidates/{id}", [CandidateController::class,"update"])->name("candidates.update");
 Route::delete("candidates/{id}", [CandidateController::class,"destroy"])->name("candidates.destroy");
 
+// Rutas para el controlador Login y Logout
+Route::get("login", [LoginController::class,"index"])->name("login");
+Route::get("logout", [LogoutController::class, "store"])->name("logout");
+Route::post("login", [LoginController::class, "store"]);
 
-
+// Ruta para un usuario logeado
+Route::get("home", [HomeController::class, "index"])->name("home.index");

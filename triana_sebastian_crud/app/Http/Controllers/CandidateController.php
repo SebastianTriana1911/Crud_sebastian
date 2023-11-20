@@ -26,13 +26,14 @@ class CandidateController extends Controller{
     }
 
     public function store(StoreCandidate $request){
-        $candidate = new Candidates();
+        $candidate=Candidates::create($request->all());
+        // $candidate = new Candidates();
 
-        $candidate -> user_id = $request -> user_id;
-        $candidate -> selection_status = $request -> selection_status;
-        $candidate -> points = $request -> points;
+        // $candidate -> user_id = $request -> user_id;
+        // $candidate -> selection_status = $request -> selection_status;
+        // $candidate -> points = $request -> points;
 
-        $candidate -> save();
+        // $candidate -> save();
 
         return redirect()->route("candidates.index");
     }
