@@ -17,6 +17,6 @@ class LoginController extends Controller{
             return back()->with('mensaje', 'Credenciales incorrectas');
         }
 
-        return redirect()->route('home.index');
+        return redirect()->route('admin.index');
     }
 }

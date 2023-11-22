@@ -134,7 +134,7 @@
             <button type="submit" class="btn btn-primary">Send</button>
         </form>
             <br>
-            <a class="btn btn-primary" href="{{ route ("users.index") }}" role="button">Return to the start</a>
+            <a class="btn btn-primary" href="{{ route ("login") }}" role="button">Return to the login</a>
         </div>
 
     @endsection
